@@ -1,2 +1,2 @@
-# stunning-invention
-Repository for "Проектный практикум" class
+# Repository for "Проектный практикум" class
+
