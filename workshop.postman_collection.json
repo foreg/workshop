@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "0a053f1d-0b17-48f6-ade7-c3297d4e2f35",
+		"name": "workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Разработать веб-службы, которые по запросу GET по адресу (URL) будет возвращать значение для следующих функций:",
+			"item": [
+				{
+					"name": "Прописью возвращать значение числа, заданного в URL в качестве параметра пути (Path Parameter)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/lab1/api/v1.0/inwords/90",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lab1",
+								"api",
+								"v1.0",
+								"inwords",
+								"90"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Возвращает решение уравнения ax2+bx+c=0, где a, b и c задаются в виде параметров запроса",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/lab1/api/v1.0/quadraticEquations/?a=0&b=0&c=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lab1",
+								"api",
+								"v1.0",
+								"quadraticEquations",
+								""
+							],
+							"query": [
+								{
+									"key": "a",
+									"value": "0"
+								},
+								{
+									"key": "b",
+									"value": "0"
+								},
+								{
+									"key": "c",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Возвращает день недели по заданной дате, которая передается как параметр запроса",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/lab1/api/v1.0/daysofweek?date=08.03.2019",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lab1",
+								"api",
+								"v1.0",
+								"daysofweek"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "08.03.2019"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Возвращает число Фибоначчи, заданное своим индексом (в виде параметра пути)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/lab1/api/v1.0/fibs/50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lab1",
+								"api",
+								"v1.0",
+								"fibs",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Возвращает название региона России по заданному номеру региона (в виде параметра пути).",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/lab1/api/v1.0/codes/72",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lab1",
+								"api",
+								"v1.0",
+								"codes",
+								"72"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4a301205-e28d-4e90-ac43-9fc3f7b19adf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b31910ef-1724-4810-a1b6-bb5c8e3a54c4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "1234",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "dmitry",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f3d6ddc0-9792-48f5-8268-bac1c2c3b896",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e2863f37-c25f-4af6-a323-a1f275b00099",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
