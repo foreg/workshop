@@ -9,4 +9,4 @@ lab4 = Blueprint('lab4', __name__)
 def getResponseFromOtherApi():
     r = requests.get('http://www.mocky.io/v2/5c7db5e13100005a00375fda')
     r = r.json()['result'].replace(' ', '_')
-    return jsonify({'response': r})
+    return jsonify({'response': r}), 200

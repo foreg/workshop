@@ -10,4 +10,4 @@ def get_password(username):
 
 @auth.error_handler
 def unauthorized():
-    return jsonify({'error': 'Unauthorized access'})
+    return jsonify({'error': 'Unauthorized access'}), 403

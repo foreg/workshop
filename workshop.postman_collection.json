@@ -9,7 +9,7 @@
 			"name": "Разработать веб-службы, которые по запросу GET по адресу (URL) будет возвращать значение для следующих функций:",
 			"item": [
 				{
-					"name": "Прописью возвращать значение числа, заданного в URL в качестве параметра пути (Path Parameter)",
+					"name": "Возвращает число Фибоначчи, заданное своим индексом (в виде параметра пути)",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -18,7 +18,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:5000/lab1/api/v1.0/inwords/90",
+							"raw": "http://localhost:5000/lab1/api/v1.0/fibs/50",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -28,53 +28,62 @@
 								"lab1",
 								"api",
 								"v1.0",
-								"inwords",
-								"90"
+								"fibs",
+								"50"
 							]
 						}
 					},
-					"response": []
-				},
-				{
-					"name": "Возвращает решение уравнения ax2+bx+c=0, где a, b и c задаются в виде параметров запроса",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:5000/lab1/api/v1.0/quadraticEquations/?a=0&b=0&c=0",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"lab1",
-								"api",
-								"v1.0",
-								"quadraticEquations",
-								""
-							],
-							"query": [
-								{
-									"key": "a",
-									"value": "0"
+					"response": [
+						{
+							"name": "Возвращает число Фибоначчи, заданное своим индексом (в виде параметра пути)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
 								},
-								{
-									"key": "b",
-									"value": "0"
-								},
-								{
-									"key": "c",
-									"value": "0"
+								"url": {
+									"raw": "http://localhost:5000/lab1/api/v1.0/fibs/50",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab1",
+										"api",
+										"v1.0",
+										"fibs",
+										"50"
+									]
 								}
-							]
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.14.1 Python/3.7.2"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Mar 2019 09:42:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"number\": 12586269025\n}"
 						}
-					},
-					"response": []
+					]
 				},
 				{
 					"name": "Возвращает день недели по заданной дате, которая передается как параметр запроса",
@@ -106,34 +115,62 @@
 							]
 						}
 					},
-					"response": []
-				},
-				{
-					"name": "Возвращает число Фибоначчи, заданное своим индексом (в виде параметра пути)",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:5000/lab1/api/v1.0/fibs/50",
-							"protocol": "http",
-							"host": [
-								"localhost"
+					"response": [
+						{
+							"name": "Возвращает день недели по заданной дате, которая передается как параметр запроса",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab1/api/v1.0/daysofweek?date=08.03.2019",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab1",
+										"api",
+										"v1.0",
+										"daysofweek"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "08.03.2019"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.14.1 Python/3.7.2"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Mar 2019 09:43:23 GMT"
+								}
 							],
-							"port": "5000",
-							"path": [
-								"lab1",
-								"api",
-								"v1.0",
-								"fibs",
-								"50"
-							]
+							"cookie": [],
+							"body": "{\n    \"dayOfWeek\": \"Пятница\",\n    \"success\": true\n}"
 						}
-					},
-					"response": []
+					]
 				},
 				{
 					"name": "Возвращает название региона России по заданному номеру региона (в виде параметра пути).",
@@ -160,7 +197,239 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Возвращает название региона России по заданному номеру региона (в виде параметра пути).",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab1/api/v1.0/codes/72",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab1",
+										"api",
+										"v1.0",
+										"codes",
+										"72"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.14.1 Python/3.7.2"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Mar 2019 09:43:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Тюменская область\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Возвращает решение уравнения ax2+bx+c=0, где a, b и c задаются в виде параметров запроса",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/lab1/api/v1.0/quadraticEquations/?a=1&b=2&c=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lab1",
+								"api",
+								"v1.0",
+								"quadraticEquations",
+								""
+							],
+							"query": [
+								{
+									"key": "a",
+									"value": "1"
+								},
+								{
+									"key": "b",
+									"value": "2"
+								},
+								{
+									"key": "c",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Возвращает решение уравнения ax2+bx+c=0, где a, b и c задаются в виде параметров запроса",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab1/api/v1.0/quadraticEquations/?a=1&b=2&c=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab1",
+										"api",
+										"v1.0",
+										"quadraticEquations",
+										""
+									],
+									"query": [
+										{
+											"key": "a",
+											"value": "1"
+										},
+										{
+											"key": "b",
+											"value": "2"
+										},
+										{
+											"key": "c",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.14.1 Python/3.7.2"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Mar 2019 09:44:08 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"results\": [\n        -1\n    ],\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Прописью возвращать значение числа, заданного в URL в качестве параметра пути (Path Parameter)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/lab1/api/v1.0/inwords/9934",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lab1",
+								"api",
+								"v1.0",
+								"inwords",
+								"9934"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Прописью возвращать значение числа, заданного в URL в качестве параметра пути (Path Parameter)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab1/api/v1.0/inwords/9934",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab1",
+										"api",
+										"v1.0",
+										"inwords",
+										"9934"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "221"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.14.1 Python/3.7.2"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 11 Mar 2019 09:44:35 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"words\": \"девять тысяч девятьсот тридцать четыре\"\n}"
+						}
+					]
 				}
 			],
 			"event": [
@@ -178,6 +447,1571 @@
 					"listen": "test",
 					"script": {
 						"id": "b31910ef-1724-4810-a1b6-bb5c8e3a54c4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Разработать веб-службы для работы с базой данных.",
+			"item": [
+				{
+					"name": "Clients",
+					"item": [
+						{
+							"name": "all clients",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/clients",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"clients"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "all clients",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/clients",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"clients"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "211"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:03:20 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"clients\": [\n        {\n            \"FIO\": \"Petrov Petr Petrovich\",\n            \"email\": \"petrov@mail.ru\",\n            \"id\": 4\n        },\n        {\n            \"FIO\": \"Sidorov Sidor Sidorovich\",\n            \"email\": \"sidorov@mail.ru\",\n            \"id\": 16\n        },\n        {\n            \"FIO\": \"Ivanov Ivan Ivanovich\",\n            \"email\": \"ivanov@mail.ru\",\n            \"id\": 5\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "client by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/clients/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"clients",
+										"4"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "client by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/clients/4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"clients",
+												"4"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "64"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:04:44 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"FIO\": \"Petrov Petr Petrovich\",\n    \"email\": \"petrov@mail.ru\",\n    \"id\": 4\n}"
+								},
+								{
+									"name": "client by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/clients/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"clients",
+												"1"
+											]
+										}
+									},
+									"status": "NOT FOUND",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "22"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:04:13 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Not found\"\n}"
+								}
+							]
+						},
+						{
+							"name": "add client",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"FIO\": \"в\",\n\t\"email\": \"в\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/clients",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"clients"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add client",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"FIO\": \"в\",\n\t\"email\": \"в\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/clients",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"clients"
+											]
+										}
+									},
+									"status": "CREATED",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "17"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:05:06 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"client_id\": 18\n}"
+								}
+							]
+						},
+						{
+							"name": "update client",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"FIO\": \"Ivanov Ivan Ivanovich\",\n\t\"email\": \"ivanov@mail.ru\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/clients/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"clients",
+										"5"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update client",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"FIO\": \"Ivanov Ivan Ivanovich\",\n\t\"email\": \"ivanov@mail.ru\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/clients/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"clients",
+												"5"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "64"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:06:13 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"FIO\": \"Ivanov Ivan Ivanovich\",\n    \"email\": \"ivanov@mail.ru\",\n    \"id\": 5\n}"
+								}
+							]
+						},
+						{
+							"name": "delete client",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"FIO\": \"Ivanov Ivan Ivanovich\",\n\t\"email\": \"ivanov@mail.ru\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/clients/18",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"clients",
+										"18"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete client",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"FIO\": \"Ivanov Ivan Ivanovich\",\n\t\"email\": \"ivanov@mail.ru\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/clients/18",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"clients",
+												"18"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "16"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:06:28 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result\": true\n}"
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Service",
+					"item": [
+						{
+							"name": "all services",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/services",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"services"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "all services",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/services",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"services"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "148"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:06:52 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"services\": [\n        {\n            \"id\": 2,\n            \"name\": \"service 2\",\n            \"price\": 200\n        },\n        {\n            \"id\": 3,\n            \"name\": \"service 3\",\n            \"price\": 300\n        },\n        {\n            \"id\": 1,\n            \"name\": \"service 1 edited\",\n            \"price\": 100\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "service by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/services/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"services",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "service by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/services/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"services",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "49"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:07:12 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"name\": \"service 1 edited\",\n    \"price\": 100\n}"
+								}
+							]
+						},
+						{
+							"name": "add service",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"service delete\",\n\t\"price\": \"300.00\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/services",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"services"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add service",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"service delete\",\n\t\"price\": \"300.00\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/services",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"services"
+											]
+										}
+									},
+									"status": "CREATED",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "17"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:07:33 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"service_id\": 5\n}"
+								}
+							]
+						},
+						{
+							"name": "update service",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"service 1 edited\",\n\t\"price\": \"100.00\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/services/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"services",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update service",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"service 1 edited\",\n\t\"price\": \"100.00\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/services/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"services",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "49"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:07:51 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"name\": \"service 1 edited\",\n    \"price\": 100\n}"
+								}
+							]
+						},
+						{
+							"name": "delete service",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"FIO\": \"Ivanov Ivan Ivanovich\",\n\t\"email\": \"ivanov@mail.ru\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/services/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"services",
+										"5"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete service",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"FIO\": \"Ivanov Ivan Ivanovich\",\n\t\"email\": \"ivanov@mail.ru\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/services/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"services",
+												"5"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "16"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:08:14 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result\": true\n}"
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "eeaef41c-2dde-4b01-82c6-583d7b54cfba",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "76c0a9cb-0e16-41c1-9739-caa643a3ef5e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Requests Copy",
+					"item": [
+						{
+							"name": "all requests",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/requests",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"requests"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "all requests",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/requests",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"requests"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "325"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:09:08 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"requests\": [\n        {\n            \"client_id\": 5,\n            \"date\": \"Sat, 09 Mar 2019 15:12:52 GMT\",\n            \"id\": 2,\n            \"service_id\": 1\n        },\n        {\n            \"client_id\": 16,\n            \"date\": \"Sat, 09 Mar 2019 15:27:17 GMT\",\n            \"id\": 4,\n            \"service_id\": 1\n        },\n        {\n            \"client_id\": 16,\n            \"date\": \"Sat, 09 Mar 2019 15:34:58 GMT\",\n            \"id\": 7,\n            \"service_id\": 1\n        },\n        {\n            \"client_id\": 5,\n            \"date\": \"Sat, 09 Mar 2019 15:11:48 GMT\",\n            \"id\": 1,\n            \"service_id\": 2\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "requests by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/requests/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"requests",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "requests by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/requests/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"requests",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "77"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:09:20 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"client_id\": 5,\n    \"date\": \"Sat, 09 Mar 2019 15:11:48 GMT\",\n    \"id\": 1,\n    \"service_id\": 2\n}"
+								}
+							]
+						},
+						{
+							"name": "add request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"client_id\": \"16\",\n\t\"service_id\": \"1\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/requests",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"requests"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "add request (client and service constraint)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"client_id\": \"99\",\n\t\"service_id\": \"1\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/requests",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"requests"
+											]
+										}
+									},
+									"status": "BAD REQUEST",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "527"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:09:57 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"ОШИБКА:  нулевое значение в столбце \\\"client_id\\\" нарушает ограничение NOT NULL\\nDETAIL:  Ошибочная строка содержит (8, null, 1, 2019-03-12 08:09:57.272296).\\n\"\n}"
+								},
+								{
+									"name": "add request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"client_id\": \"16\",\n\t\"service_id\": \"1\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/requests",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"requests"
+											]
+										}
+									},
+									"status": "CREATED",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "18"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:11:19 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"request_id\": 10\n}"
+								}
+							]
+						},
+						{
+							"name": "update request",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"client_id\": 5,\n    \"date\": \"Sat, 09 Mar 2019 15:11:48 GMT\",\n    \"service_id\": 2\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/requests/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"requests",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"client_id\": 5,\n    \"date\": \"Sat, 09 Mar 2019 15:11:48 GMT\",\n    \"service_id\": 2\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/requests/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"requests",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "77"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:11:38 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"client_id\": 5,\n    \"date\": \"Sat, 09 Mar 2019 15:11:48 GMT\",\n    \"id\": 1,\n    \"service_id\": 2\n}"
+								}
+							]
+						},
+						{
+							"name": "delete request",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"FIO\": \"Ivanov Ivan Ivanovich\",\n\t\"email\": \"ivanov@mail.ru\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab2/api/v1.0/requests/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab2",
+										"api",
+										"v1.0",
+										"requests",
+										"3"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"FIO\": \"Ivanov Ivan Ivanovich\",\n\t\"email\": \"ivanov@mail.ru\"\n}"
+										},
+										"url": {
+											"raw": "http://localhost:5000/lab2/api/v1.0/requests/10",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"lab2",
+												"api",
+												"v1.0",
+												"requests",
+												"10"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "16"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/0.14.1 Python/3.7.2"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Mar 2019 08:12:04 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"result\": true\n}"
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "eeaef41c-2dde-4b01-82c6-583d7b54cfba",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "76c0a9cb-0e16-41c1-9739-caa643a3ef5e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "Реализована поддержка ограничений на внешние ключи",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7bc1888d-f1d9-4c39-b54d-2a39f6421a11",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8c39f4b8-fe9e-410f-8ca4-7dd91b6a6a45",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Получить ответ от http://www.mocky.io/v2/5c7db5e13100005a00375fda",
+			"item": [
+				{
+					"name": "get response and replace whitespaces ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/lab4/api/v1.0/otherapis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lab4",
+								"api",
+								"v1.0",
+								"otherapis"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get response and replace whitespaces ",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/lab4/api/v1.0/otherapis",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"lab4",
+										"api",
+										"v1.0",
+										"otherapis"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.14.1 Python/3.7.2"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2019 08:13:07 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"response\": \"molodez,_vozmi_s_polki_piroshok\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7b3f4c7b-36a6-428b-b023-e0814d626cc6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ca94ebb1-4775-45fe-bd8d-493568fb942b",
 						"type": "text/javascript",
 						"exec": [
 							""
