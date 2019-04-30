@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <form action="" method="POST">
+        <p><input type="text" name="name"></p>
+        <p><input type="text" name="answer[]"><button class="delete">delete</button></p>
+        <p><input type="text" name="answer[]" class="last"><button class="delete">delete</button></p>
+
+        <input type="submit" name="save" value = 'Save'>
+    </form>
+    <script>
+        function add_input() {
+            let input = '<p><input type="text" name="answer[]" class="last"><button class="delete">delete</button></p>';
+            let old_input = $('.last');
+            old_input.parent().after(input);
+            old_input.removeClass('last');
+            old_input.off('keydown');
+            $('.last').keydown(() => add_input());
+        }
+        $('.last').keydown(() => add_input());
+        $('.delete').click(()=>{
+            if ($(event.currentTarget).parent().parent().closest('input').hasClass('last')) {
+                $(event.currentTarget).parent().parent().closest('input').closest('input').addClass('last');
+            }
+            $(event.currentTarget).closest('p').remove();
+        });
+    </script>
+</body>
+</html>
