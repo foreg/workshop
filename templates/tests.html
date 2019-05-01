@@ -1,0 +1,22 @@
+<html>
+<head>
+
+</head>
+<body>
+    <ul>
+    {% for test in tests%}
+        <li>{{test.name}}</li>
+        <ul>
+            {% for question in test.questions%}
+                <li>{{question.name}}</li>
+                <ul>
+                    {% for answer in question.answers%}
+                        <li><span style="color:{{'green' if answer.isCorrect else 'red'}}">{{answer.name}}</span></li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -5,26 +5,31 @@
 <body>
     <form action="" method="POST">
         <p><input type="text" name="name"></p>
-        <p><input type="text" name="answer[]"><button class="delete">delete</button></p>
-        <p><input type="text" name="answer[]" class="last"><button class="delete">delete</button></p>
+        <p><input type='hidden' value='0' name='isCorrect[]'><input type="checkbox" value='1' name="isCorrect[]"><input type="text" name="answer[]" class="answer"><span class="delete">delete</span></p>
+        <p><input type='hidden' value='0' name='isCorrect[]'><input type="checkbox" value='1' name="isCorrect[]"><input type="text" name="answer[]" class="answer last"><span class="delete">delete</span></p>
 
         <input type="submit" name="save" value = 'Save'>
+        <span class="quit">quit</span>
     </form>
     <script>
         function add_input() {
-            let input = '<p><input type="text" name="answer[]" class="last"><button class="delete">delete</button></p>';
+            let input = '<p><input type="hidden" value="0" name="isCorrect[]"><input type="checkbox" value="1" name="isCorrect[]"><input type="text" name="answer[]" class="answer last"><span class="delete">delete</span></p>';
             let old_input = $('.last');
             old_input.parent().after(input);
             old_input.removeClass('last');
             old_input.off('keydown');
-            $('.last').keydown(() => add_input());
         }
-        $('.last').keydown(() => add_input());
-        $('.delete').click(()=>{
-            if ($(event.currentTarget).parent().parent().closest('input').hasClass('last')) {
-                $(event.currentTarget).parent().parent().closest('input').closest('input').addClass('last');
+        function delete_input() {
+            if ($(event.target).prev('.answer').hasClass('last')) {
+                $(event.target).parent().prev('p').children('.answer').addClass('last');
             }
-            $(event.currentTarget).closest('p').remove();
+            $(event.target).closest('p').remove();
+        }
+        $('body').on('keydown','.last', () => add_input());
+        $('body').on('click','.delete', () => delete_input());
+        $('body').on('click','.quit', () => {
+            alert('Сохранить изменения?');
+            location.href = '/lab6/tests';
         });
     </script>
 </body>
